@@ -1,0 +1,120 @@
+#+TITLE: Change log of lin.el
+#+AUTHOR: Protesilaos Stavrou
+#+EMAIL: info@protesilaos.com
+#+OPTIONS: ':nil toc:nil num:nil author:nil email:nil
+
+The newest release is at the top.  For further details, please consult
+the manual: <https://protesilaos.com/emacs/lin>.
+
+* Version 0.3.0 on 2022-04-08
+
++ Changed the source repository from GitLab to SourceHut:
+  <https://git.sr.ht/~protesilaos/lin>.  Use the mailing list to start a
+  discussion, report a bug, send a patch, etc.:
+  <https://lists.sr.ht/~protesilaos/lin>.  The GitLab URL will serve as
+  a mirror from now on (a GitHub mirror is still available and will
+  remain that way).
+
++ Introduced a buffer-local minor mode as well as its global equivalent:
+  ~lin-mode~ and ~lin-global-mode~.  This makes it easier to set up Lin
+  in user init files and/or toggle it on demand.  The following shows
+  how the package can be used:
+
+  #+begin_src emacs-lisp
+(require 'lin)
+
+(setq lin-face 'lin-blue) ; check doc string for alternative styles
+
+;; You can use this to live update the face:
+;;
+;; (customize-set-variable 'lin-face 'lin-green)
+
+(setq lin-mode-hooks
+      '(bongo-mode-hook
+        dired-mode-hook
+        elfeed-search-mode-hook
+        git-rebase-mode-hook
+        ibuffer-mode-hook
+        ilist-mode-hook
+        ledger-report-mode-hook
+        log-view-mode-hook
+        magit-log-mode-hook
+        mu4e-headers-mode
+        notmuch-search-mode-hook
+        notmuch-tree-mode-hook
+        occur-mode-hook
+        org-agenda-mode-hook
+        tabulated-list-mode-hook))
+
+(lin-global-mode 1)
+  #+end_src
+
++ The ~lin-face~ now has a custom setter which automatically updates its
+  appearance in all buffers where ~lin-mode~ is enabled.  Users might
+  thus prefer to set its value with ~customize-set-variable~ in order to
+  find the style they like the most.  Otherwise setting the value with
+  ~setq~ is just fine for stable configurations.  If, in that case, the
+  user wants to update the face, they must invoke ~revert-buffer~ or
+  equivalent (e.g. type =g= in Dired with the default key bindings) or
+  evaluate the function ~lin-enable-mode-in-buffers~.
+
++ The user option ~lin-mode-hooks~ now includes ~bongo-mode-hook~ (from
+  the =bongo= package).  Its default value is shown in the sample code
+  above.
+
+* Version 0.2.0 on 2022-03-16
+
+Rewrote the entirety of =lin.el= to make the configuration easier and
+keep the code streamlined.  The gist is that now Lin automatically
+enables ~hl-line-mode~ in every mode implied by ~lin-mode-hooks~.  Here
+is how Lin should be set up henceforth:
+
+#+begin_src emacs-lisp
+(require 'lin)
+
+(setq lin-face 'lin-blue) ; check doc string for alternative styles
+
+(lin-setup) ; Either run this or change `lin-mode-hooks'
+
+(customize-set-variable
+ 'lin-mode-hooks ; do not use `setq' with this; `customize-set-variable' runs `lin-setup' automatically
+ '(dired-mode-hook
+   elfeed-search-mode-hook
+   git-rebase-mode-hook
+   ibuffer-mode-hook
+   ilist-mode-hook
+   ledger-report-mode-hook
+   log-view-mode-hook
+   magit-log-mode-hook
+   mu4e-headers-mode
+   notmuch-search-mode-hook
+   notmuch-tree-mode-hook
+   occur-mode-hook
+   org-agenda-mode-hook
+   tabulated-list-mode-hook))
+#+end_src
+
+The manual has been updated to reflect those changes:
+<https://protesilaos.com/emacs/lin>.
+
+Thanks to:
+
++ Christian Tietze for showing how the Lin face can use colors from the
+  macOS palette.  The original contribution was in merge request 2:
+  <https://gitlab.com/protesilaos/lin/-/merge_requests/2>.  Now we
+  provide the ~lin-mac~ and ~lin-mac-override-fg~ faces.  These can be
+  assigned as a value to the user option ~lin-face~.
+
++ Damien Cassou for suggesting that Lin sets itself up for a list of
+  mode hooks.  The original contribution was in merge request 3:
+  <https://gitlab.com/protesilaos/lin/-/merge_requests/3>.  It has now
+  been rewritten as the ~lin-mode-hooks~ user option, though the idea is
+  the same.
+
++ Federico Stilman for adding ~mu4e-headers-mode~ to the list that
+  Damien had provided and which now lives as ~lin-mode-hooks~.
+  Federico's contribution was sent as a patch via email.
+
+* Version 0.1.0 on 2022-03-14
+
+Initial release of the package.  Please read the manual.
