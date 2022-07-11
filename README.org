@@ -200,6 +200,7 @@ Everything is in place to set up the package.
         notmuch-tree-mode-hook
         occur-mode-hook
         org-agenda-mode-hook
+        pdf-outline-buffer-mode-hook
         proced-mode-hook
         tabulated-list-mode-hook))
 
@@ -220,7 +221,8 @@ Lin is meant to be a collective effort.  Every bit of help matters.
 + Author/maintainer :: Protesilaos Stavrou.
 
 + Contributions to code or documentation :: Christian Tietze, Damien
-  Cassou, Federico Stilman, Kai von Fintel, Nicolas De Jaeghere.
+  Cassou, Federico Stilman, Gautier Ponsinet, Kai von Fintel, Nicolas De
+  Jaeghere.
 
 * GNU Free Documentation License
 :PROPERTIES:
