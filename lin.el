@@ -6,7 +6,7 @@
 ;; Maintainer: Lin Development <~protesilaos/lin@lists.sr.ht>
 ;; URL: https://git.sr.ht/~protesilaos/lin
 ;; Mailing-List: https://lists.sr.ht/~protesilaos/lin
-;; Version: 0.4.0
+;; Version: 1.0.0
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: convenience, faces, theme
 
@@ -55,7 +55,7 @@
 ;; `lin-yellow-override-fg', `lin-blue-override-fg',
 ;; `lin-magenta-override-fg', `lin-cyan-override-fg',
 ;; `lin-mac-override-fg', or any other face that preferably has a
-;; background attribute.  The Lin faces with the =-override-fg= suffix
+;; background attribute.  The Lin faces with the "-override-fg" suffix
 ;; set a foreground value which replaces that of the underlying text.
 ;; Whereas the others only specify a background attribute.
 ;;
@@ -69,7 +69,8 @@
 
 (defgroup lin ()
   "Make `hl-line' appropriate for selection UIs."
-  :group 'convenience)
+  :group 'convenience
+  :link '(info-link "(lin) Top"))
 
 (defcustom lin-mode-hooks
   '(bongo-mode-hook
@@ -90,13 +91,12 @@
     pdf-outline-buffer-mode-hook
     proced-mode-hook
     tabulated-list-mode-hook)
-  "List of hooks that should enable Lin.
-
-When Lin is set up with either `lin-mode' or `lin-global-mode',
-it activates `hl-line-mode' and remaps its face to `lin-face'.
-This makes it possible to distinguish between the two use-cases
-of permanent line highlighting: (i) gentle reminder of where the
-point is while editing, (ii) current selection."
+  "List of hooks that should be used by the `lin-global-mode'.
+Lin activates `hl-line-mode' and remaps its face to `lin-face'.
+This makes it possible to tweak the `lin-face' in order to
+distinguish between the two use-cases of permanent line
+highlighting: (i) gentle reminder of where the point is while
+editing, and (ii) current selection."
   :type '(repeat variable)
   :initialize #'custom-initialize-default
   :set (lambda (symbol value)
@@ -105,6 +105,7 @@ point is while editing, (ii) current selection."
            (lin--setup 'reverse)
            (set-default symbol value)
            (lin--setup)))
+  :package-version '(lin . "1.0.0")
   :group 'lin)
 
 (defcustom lin-face 'lin-blue
@@ -140,6 +141,7 @@ updates the face.  Users who prefer to use `setq' must run
   :set (lambda (symbol value)
          (set-default symbol value)
          (lin-enable-mode-in-buffers))
+  :package-version '(lin . "0.3.0")
   :group 'lin)
 
 ;;;; Faces
@@ -156,6 +158,7 @@ updates the face.  Users who prefer to use `setq' must run
      :background "#500f0f")
     (t :background "red"))
   "Alternative red face for `lin-face'."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 (defface lin-red-override-fg
@@ -165,6 +168,7 @@ updates the face.  Users who prefer to use `setq' must run
     (((background dark))
      :foreground "white"))
   "Like `lin-red' but also sets a foreground."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 (defface lin-green
@@ -175,6 +179,7 @@ updates the face.  Users who prefer to use `setq' must run
      :background "#0f300f")
     (t :background "green"))
   "Alternative green face for `lin-face'."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 (defface lin-green-override-fg
@@ -184,6 +189,7 @@ updates the face.  Users who prefer to use `setq' must run
     (((background dark))
      :foreground "white"))
   "Like `lin-green' but also sets a foreground."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 (defface lin-yellow
@@ -194,6 +200,7 @@ updates the face.  Users who prefer to use `setq' must run
      :background "#412200")
     (t :background "yellow"))
   "Alternative yellow face for `lin-face'."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 (defface lin-yellow-override-fg
@@ -203,6 +210,7 @@ updates the face.  Users who prefer to use `setq' must run
     (((background dark))
      :foreground "white"))
   "Like `lin-yellow' but also sets a foreground."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 (defface lin-blue
@@ -213,6 +221,7 @@ updates the face.  Users who prefer to use `setq' must run
      :background "#002460")
     (t :background "blue"))
   "Alternative blue face for `lin-face'."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 (defface lin-blue-override-fg
@@ -222,6 +231,7 @@ updates the face.  Users who prefer to use `setq' must run
     (((background dark))
      :foreground "white"))
   "Like `lin-blue' but also sets a foreground."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 (defface lin-magenta
@@ -232,6 +242,7 @@ updates the face.  Users who prefer to use `setq' must run
      :background "#401d40")
     (t :background "magenta"))
   "Alternative magenta face for `lin-face'."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 (defface lin-magenta-override-fg
@@ -241,6 +252,7 @@ updates the face.  Users who prefer to use `setq' must run
     (((background dark))
      :foreground "white"))
   "Like `lin-magenta' but also sets a foreground."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 (defface lin-cyan
@@ -251,6 +263,7 @@ updates the face.  Users who prefer to use `setq' must run
      :background "#002f3f")
     (t :background "cyan"))
   "Alternative cyan face for `lin-face'."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 (defface lin-cyan-override-fg
@@ -260,6 +273,7 @@ updates the face.  Users who prefer to use `setq' must run
     (((background dark))
      :foreground "white"))
   "Like `lin-cyan' but also sets a foreground."
+  :package-version '(lin . "0.2.0")
   :group 'lin-faces)
 
 ;; TODO 2022-03-18: Can we find all system styles?  Then we can rename
@@ -272,12 +286,14 @@ updates the face.  Users who prefer to use `setq' must run
      :background "mac:selectedContentBackgroundColor" :extend t)
     (t :inherit lin-blue))
   "Alternative macOS-style face for `lin-face'."
+  :package-version '(lin . "0.4.0")
   :group 'lin-faces)
 
 (defface lin-mac-override-fg
   '((((type ns)) :inherit lin-mac :foreground "alternateSelectedControlTextColor")
     (((type mac)) :inherit lin-mac :foreground "mac:alternateSelectedControlTextColor"))
   "Like `lin-mac' but also sets a foreground."
+  :package-version '(lin . "0.4.0")
   :group 'lin-faces)
 
 ;;;; Lin setup
@@ -352,8 +368,6 @@ With optional non-nil REVERSE argument, remove those hooks."
     (lin--setup-add-hooks)))
   (setq lin--setup-hooks lin-mode-hooks))
 
-(define-obsolete-function-alias 'lin-setup 'lin--setup "0.3.0")
-
 (defun lin--mode-enable (buffer)
   "Enable `lin-mode' in BUFFER if appropriate."
   (with-current-buffer buffer
@@ -371,10 +385,6 @@ With optional non-nil REVERSE argument, remove those hooks."
   "Enable (restart) `lin-mode' if already enabled in any buffer.
 Do so by checking the `buffer-list'."
   (mapc #'lin--mode-enable (buffer-list)))
-
-(define-obsolete-function-alias
-  'lin-restart-mode-in-buffers
-  'lin-enable-mode-in-buffers "0.3.0")
 
 (defun lin-disable-mode-in-buffers ()
   "Restart `lin-mode' if already enabled in any buffer.
