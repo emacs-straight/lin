@@ -1,4 +1,4 @@
-This is docYLs1wg.info, produced by makeinfo version 6.8 from lin.texi.
+This is docYBVXyf.info, produced by makeinfo version 6.8 from lin.texi.
 
 Copyright (C) 2021-2023 Free Software Foundation, Inc.
 
@@ -19,7 +19,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: docYLs1wg.info,  Node: Top,  Next: Overview LIN,  Up: (dir)
+File: docYBVXyf.info,  Node: Top,  Next: Overview,  Up: (dir)
 
 LIN Is Noticeable (lin.el)
 **************************
@@ -57,7 +57,7 @@ as such.
 
 * Menu:
 
-* Overview LIN::
+* Overview::
 * Installation::
 * Sample configuration::
 * Acknowledgements::
@@ -79,10 +79,10 @@ Indices
 
 
 
-File: docYLs1wg.info,  Node: Overview LIN,  Next: Installation,  Prev: Top,  Up: Top
+File: docYBVXyf.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
 
-1 Overview LIN
-**************
+1 Overview
+**********
 
 Lin is a stylistic enhancement for Emacs’ built-in ‘hl-line-mode’.  It
 remaps the ‘hl-line’ face (or equivalent) buffer-locally to a style that
@@ -115,8 +115,14 @@ background attribute.  The Lin faces with the ‘-override-fg’ suffix set
 a foreground value which replaces that of the underlying text.  Whereas
 the others only specify a background attribute.
 
+   [ The ‘lin-remap-cureent-line-number’ is part of 1.1.0-dev.  ]
+
+   The user option ‘lin-remap-cureent-line-number’ controls whether to
+apply the Lin style also to the currently highlighted line number.  Line
+numbers come from the built-in ‘display-line-numbers-mode’.
+
 
-File: docYLs1wg.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview LIN,  Up: Top
+File: docYBVXyf.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
 
 2 Installation
 **************
@@ -127,7 +133,7 @@ File: docYLs1wg.info,  Node: Installation,  Next: Sample configuration,  Prev: O
 * Manual installation::
 
 
-File: docYLs1wg.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
+File: docYBVXyf.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
 
 2.1 GNU ELPA package
 ====================
@@ -146,7 +152,7 @@ archive.  Read:
 <https://protesilaos.com/codelog/2022-05-13-emacs-elpa-devel/>.
 
 
-File: docYLs1wg.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
+File: docYBVXyf.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
 
 2.2 Manual installation
 =======================
@@ -173,7 +179,7 @@ following commands in a shell prompt:
    Everything is in place to set up the package.
 
 
-File: docYLs1wg.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
+File: docYBVXyf.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
 
 3 Sample configuration
 **********************
@@ -212,7 +218,7 @@ File: docYLs1wg.info,  Node: Sample configuration,  Next: Acknowledgements,  Pre
 Neotree: <https://christiantietze.de/posts/2022/03/hl-line-priority/>.
 
 
-File: docYLs1wg.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
+File: docYBVXyf.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
 
 4 Acknowledgements
 ******************
@@ -227,7 +233,7 @@ Contributions to code or documentation
      Ponsinet, Kai von Fintel, Nicolas De Jaeghere, Simon Pugnet.
 
 
-File: docYLs1wg.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
+File: docYBVXyf.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
 
 Appendix A GNU Free Documentation License
 *****************************************
@@ -709,7 +715,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: docYLs1wg.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
+File: docYBVXyf.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
 
 B Indices
 *********
@@ -721,7 +727,7 @@ B Indices
 * Concept index::
 
 
-File: docYLs1wg.info,  Node: Function index,  Next: Variable index,  Up: Indices
+File: docYBVXyf.info,  Node: Function index,  Next: Variable index,  Up: Indices
 
 B.1 Function index
 ==================
@@ -729,10 +735,10 @@ B.1 Function index
  [index ]
 * Menu:
 
-* lin-mode:                              Overview LIN.         (line 21)
+* lin-mode:                              Overview.             (line 21)
 
 
-File: docYLs1wg.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
+File: docYBVXyf.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
 
 B.2 Variable index
 ==================
@@ -740,26 +746,27 @@ B.2 Variable index
  [index ]
 * Menu:
 
-* lin-blue:                              Overview LIN.         (line 26)
-* lin-blue <1>:                          Overview LIN.         (line 26)
-* lin-blue-override-fg:                  Overview LIN.         (line 26)
-* lin-cyan:                              Overview LIN.         (line 26)
-* lin-cyan-override-fg:                  Overview LIN.         (line 26)
-* lin-face:                              Overview LIN.         (line 21)
-* lin-green:                             Overview LIN.         (line 26)
-* lin-green-override-fg:                 Overview LIN.         (line 26)
-* lin-mac:                               Overview LIN.         (line 26)
-* lin-mac-override-fg:                   Overview LIN.         (line 26)
-* lin-magenta:                           Overview LIN.         (line 26)
-* lin-magenta-override-fg:               Overview LIN.         (line 26)
-* lin-mode-hooks:                        Overview LIN.         (line 21)
-* lin-red:                               Overview LIN.         (line 26)
-* lin-red-override-fg:                   Overview LIN.         (line 26)
-* lin-yellow:                            Overview LIN.         (line 26)
-* lin-yellow-override-fg:                Overview LIN.         (line 26)
+* lin-blue:                              Overview.             (line 26)
+* lin-blue <1>:                          Overview.             (line 26)
+* lin-blue-override-fg:                  Overview.             (line 26)
+* lin-cyan:                              Overview.             (line 26)
+* lin-cyan-override-fg:                  Overview.             (line 26)
+* lin-face:                              Overview.             (line 21)
+* lin-green:                             Overview.             (line 26)
+* lin-green-override-fg:                 Overview.             (line 26)
+* lin-mac:                               Overview.             (line 26)
+* lin-mac-override-fg:                   Overview.             (line 26)
+* lin-magenta:                           Overview.             (line 26)
+* lin-magenta-override-fg:               Overview.             (line 26)
+* lin-mode-hooks:                        Overview.             (line 21)
+* lin-red:                               Overview.             (line 26)
+* lin-red-override-fg:                   Overview.             (line 26)
+* lin-remap-cureent-line-number:         Overview.             (line 39)
+* lin-yellow:                            Overview.             (line 26)
+* lin-yellow-override-fg:                Overview.             (line 26)
 
 
-File: docYLs1wg.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
+File: docYBVXyf.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
 
 B.3 Concept index
 =================
@@ -769,24 +776,24 @@ B.3 Concept index
 
 * Contributors:                          Acknowledgements.      (line 6)
 * Installation instructions:             Installation.          (line 6)
-* Overview:                              Overview LIN.          (line 6)
+* Overview:                              Overview.              (line 6)
 * Set up Lin:                            Sample configuration.  (line 6)
 
 
 
 Tag Table:
 Node: Top864
-Node: Overview LIN2616
-Node: Installation4549
-Node: GNU ELPA package4740
-Node: Manual installation5298
-Node: Sample configuration6055
-Node: Acknowledgements7216
-Node: GNU Free Documentation License7666
-Node: Indices33027
-Node: Function index33203
-Node: Variable index33421
-Node: Concept index34829
+Node: Overview2608
+Node: Installation4813
+Node: GNU ELPA package5000
+Node: Manual installation5558
+Node: Sample configuration6315
+Node: Acknowledgements7476
+Node: GNU Free Documentation License7926
+Node: Indices33287
+Node: Function index33463
+Node: Variable index33681
+Node: Concept index35162
 
 End Tag Table
 

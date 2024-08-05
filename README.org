@@ -59,7 +59,7 @@ included in the section entitled “GNU Free Documentation License.”
 modify this GNU manual.”
 #+end_quote
 
-* Overview LIN
+* Overview
 :PROPERTIES:
 :CUSTOM_ID: h:aa71c6b7-4801-4aba-9bcb-f3309f9e4d87
 :END:
@@ -113,6 +113,13 @@ Users can select their preferred style by customizing the user option
 background attribute.  The Lin faces with the =-override-fg= suffix set
 a foreground value which replaces that of the underlying text.  Whereas
 the others only specify a background attribute.
+
+[ The ~lin-remap-cureent-line-number~ is part of {{{development-version}}}. ]
+
+#+vindex: lin-remap-cureent-line-number
+The user option ~lin-remap-cureent-line-number~ controls whether to
+apply the Lin style also to the currently highlighted line number.
+Line numbers come from the built-in ~display-line-numbers-mode~.
 
 * Installation
 :PROPERTIES:

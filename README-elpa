@@ -27,7 +27,7 @@ Table of Contents
 ─────────────────
 
 1. COPYING
-2. Overview LIN
+2. Overview
 3. Installation
 .. 1. GNU ELPA package
 .. 2. Manual installation
@@ -58,8 +58,8 @@ Table of Contents
         copy and modify this GNU manual.”
 
 
-2 Overview LIN
-══════════════
+2 Overview
+══════════
 
   Lin is a stylistic enhancement for Emacs’ built-in `hl-line-mode'.  It
   remaps the `hl-line' face (or equivalent) buffer-locally to a style
@@ -92,6 +92,12 @@ Table of Contents
   background attribute.  The Lin faces with the `-override-fg' suffix
   set a foreground value which replaces that of the underlying text.
   Whereas the others only specify a background attribute.
+
+  [ The `lin-remap-cureent-line-number' is part of 1.1.0-dev. ]
+
+  The user option `lin-remap-cureent-line-number' controls whether to
+  apply the Lin style also to the currently highlighted line number.
+  Line numbers come from the built-in `display-line-numbers-mode'.
 
 
 3 Installation
