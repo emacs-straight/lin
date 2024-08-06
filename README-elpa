@@ -10,10 +10,10 @@ This manual, written by Protesilaos Stavrou, describes the specifics of
 `lin.el'.
 
 The documentation furnished herein corresponds to stable version 1.0.0,
-released on 2022-09-08.  Any reference to a newer feature which does not
+released on 2024-08-05.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
 
-Current development target is 1.1.0-dev.
+Current development target is 1.2.0-dev.
 
 ⁃ Package name (GNU ELPA): `lin'
 ⁃ Official manual: <https://protesilaos.com/emacs/lin>
@@ -93,9 +93,7 @@ Table of Contents
   set a foreground value which replaces that of the underlying text.
   Whereas the others only specify a background attribute.
 
-  [ The `lin-remap-cureent-line-number' is part of 1.1.0-dev. ]
-
-  The user option `lin-remap-cureent-line-number' controls whether to
+  The user option `lin-remap-current-line-number' controls whether to
   apply the Lin style also to the currently highlighted line number.
   Line numbers come from the built-in `display-line-numbers-mode'.
 
