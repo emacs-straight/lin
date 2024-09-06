@@ -1,4 +1,4 @@
-This is docbu3FKF.info, produced by makeinfo version 6.8 from lin.texi.
+This is docHcDJyB.info, produced by makeinfo version 6.8 from lin.texi.
 
 Copyright (C) 2021-2023 Free Software Foundation, Inc.
 
@@ -19,7 +19,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: docbu3FKF.info,  Node: Top,  Next: Overview,  Up: (dir)
+File: docHcDJyB.info,  Node: Top,  Next: Overview,  Up: (dir)
 
 LIN Is Noticeable (lin.el)
 **************************
@@ -79,7 +79,7 @@ Indices
 
 
 
-File: docbu3FKF.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
+File: docHcDJyB.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
 
 1 Overview
 **********
@@ -120,7 +120,7 @@ apply the Lin style also to the currently highlighted line number.  Line
 numbers come from the built-in ‘display-line-numbers-mode’.
 
 
-File: docbu3FKF.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
+File: docHcDJyB.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
 
 2 Installation
 **************
@@ -131,7 +131,7 @@ File: docbu3FKF.info,  Node: Installation,  Next: Sample configuration,  Prev: O
 * Manual installation::
 
 
-File: docbu3FKF.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
+File: docHcDJyB.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
 
 2.1 GNU ELPA package
 ====================
@@ -150,7 +150,7 @@ archive.  Read:
 <https://protesilaos.com/codelog/2022-05-13-emacs-elpa-devel/>.
 
 
-File: docbu3FKF.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
+File: docHcDJyB.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
 
 2.2 Manual installation
 =======================
@@ -177,7 +177,7 @@ following commands in a shell prompt:
    Everything is in place to set up the package.
 
 
-File: docbu3FKF.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
+File: docHcDJyB.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
 
 3 Sample configuration
 **********************
@@ -216,7 +216,7 @@ File: docbu3FKF.info,  Node: Sample configuration,  Next: Acknowledgements,  Pre
 Neotree: <https://christiantietze.de/posts/2022/03/hl-line-priority/>.
 
 
-File: docbu3FKF.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
+File: docHcDJyB.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
 
 4 Acknowledgements
 ******************
@@ -231,7 +231,7 @@ Contributions to code or documentation
      Ponsinet, Kai von Fintel, Nicolas De Jaeghere, Simon Pugnet.
 
 
-File: docbu3FKF.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
+File: docHcDJyB.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
 
 Appendix A GNU Free Documentation License
 *****************************************
@@ -713,7 +713,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: docbu3FKF.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
+File: docHcDJyB.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
 
 B Indices
 *********
@@ -725,7 +725,7 @@ B Indices
 * Concept index::
 
 
-File: docbu3FKF.info,  Node: Function index,  Next: Variable index,  Up: Indices
+File: docHcDJyB.info,  Node: Function index,  Next: Variable index,  Up: Indices
 
 B.1 Function index
 ==================
@@ -736,7 +736,7 @@ B.1 Function index
 * lin-mode:                              Overview.             (line 21)
 
 
-File: docbu3FKF.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
+File: docHcDJyB.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
 
 B.2 Variable index
 ==================
@@ -764,7 +764,7 @@ B.2 Variable index
 * lin-yellow-override-fg:                Overview.             (line 26)
 
 
-File: docbu3FKF.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
+File: docHcDJyB.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
 
 B.3 Concept index
 =================
