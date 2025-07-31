@@ -1,4 +1,4 @@
-This is doc33tAue.info, produced by makeinfo version 6.8 from lin.texi.
+This is docRwiLCf.info, produced by makeinfo version 6.8 from lin.texi.
 
 Copyright (C) 2021-2023 Free Software Foundation, Inc.
 
@@ -19,7 +19,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: doc33tAue.info,  Node: Top,  Next: Overview,  Up: (dir)
+File: docRwiLCf.info,  Node: Top,  Next: Overview,  Up: (dir)
 
 LIN Is Noticeable (lin.el)
 **************************
@@ -79,7 +79,7 @@ Indices
 
 
 
-File: doc33tAue.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
+File: docRwiLCf.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
 
 1 Overview
 **********
@@ -120,7 +120,7 @@ apply the Lin style also to the currently highlighted line number.  Line
 numbers come from the built-in ‘display-line-numbers-mode’.
 
 
-File: doc33tAue.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
+File: docRwiLCf.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
 
 2 Installation
 **************
@@ -131,7 +131,7 @@ File: doc33tAue.info,  Node: Installation,  Next: Sample configuration,  Prev: O
 * Manual installation::
 
 
-File: doc33tAue.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
+File: docRwiLCf.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
 
 2.1 GNU ELPA package
 ====================
@@ -150,7 +150,7 @@ archive.  Read:
 <https://protesilaos.com/codelog/2022-05-13-emacs-elpa-devel/>.
 
 
-File: doc33tAue.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
+File: docRwiLCf.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
 
 2.2 Manual installation
 =======================
@@ -177,7 +177,7 @@ following commands in a shell prompt:
    Everything is in place to set up the package.
 
 
-File: doc33tAue.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
+File: docRwiLCf.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
 
 3 Sample configuration
 **********************
@@ -216,7 +216,7 @@ File: doc33tAue.info,  Node: Sample configuration,  Next: Acknowledgements,  Pre
 Neotree: <https://christiantietze.de/posts/2022/03/hl-line-priority/>.
 
 
-File: doc33tAue.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
+File: docRwiLCf.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
 
 4 Acknowledgements
 ******************
@@ -231,7 +231,7 @@ Contributions to code or documentation
      Ponsinet, Kai von Fintel, Nicolas De Jaeghere, Simon Pugnet.
 
 
-File: doc33tAue.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
+File: docRwiLCf.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
 
 Appendix A GNU Free Documentation License
 *****************************************
@@ -713,7 +713,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: doc33tAue.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
+File: docRwiLCf.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
 
 B Indices
 *********
@@ -725,7 +725,7 @@ B Indices
 * Concept index::
 
 
-File: doc33tAue.info,  Node: Function index,  Next: Variable index,  Up: Indices
+File: docRwiLCf.info,  Node: Function index,  Next: Variable index,  Up: Indices
 
 B.1 Function index
 ==================
@@ -736,7 +736,7 @@ B.1 Function index
 * lin-mode:                              Overview.             (line 21)
 
 
-File: doc33tAue.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
+File: docRwiLCf.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
 
 B.2 Variable index
 ==================
@@ -764,7 +764,7 @@ B.2 Variable index
 * lin-yellow-override-fg:                Overview.             (line 26)
 
 
-File: doc33tAue.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
+File: docRwiLCf.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
 
 B.3 Concept index
 =================
