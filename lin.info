@@ -1,5 +1,4 @@
-This is docuyfzxc.info, produced by makeinfo version 7.1.1 from
-lin.texi.
+This is lin.info, produced by makeinfo version 7.2 from lin.texi.
 
 Copyright (C) 2021-2026 Free Software Foundation, Inc.
 
@@ -20,7 +19,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: docuyfzxc.info,  Node: Top,  Next: Overview,  Up: (dir)
+File: lin.info,  Node: Top,  Next: Overview,  Up: (dir)
 
 LIN Is Noticeable (lin.el)
 **************************
@@ -78,9 +77,8 @@ Indices
 * Variable index::
 * Concept index::
 
-
 
-File: docuyfzxc.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
+File: lin.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
 
 1 Overview
 **********
@@ -121,7 +119,7 @@ apply the Lin style also to the currently highlighted line number.  Line
 numbers come from the built-in ‘display-line-numbers-mode’.
 
 
-File: docuyfzxc.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
+File: lin.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
 
 2 Installation
 **************
@@ -132,7 +130,7 @@ File: docuyfzxc.info,  Node: Installation,  Next: Sample configuration,  Prev: O
 * Manual installation::
 
 
-File: docuyfzxc.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
+File: lin.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
 
 2.1 GNU ELPA package
 ====================
@@ -151,7 +149,7 @@ archive.  Read:
 <https://protesilaos.com/codelog/2022-05-13-emacs-elpa-devel/>.
 
 
-File: docuyfzxc.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
+File: lin.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
 
 2.2 Manual installation
 =======================
@@ -178,7 +176,7 @@ following commands in a shell prompt:
    Everything is in place to set up the package.
 
 
-File: docuyfzxc.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
+File: lin.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
 
 3 Sample configuration
 **********************
@@ -217,7 +215,7 @@ File: docuyfzxc.info,  Node: Sample configuration,  Next: Acknowledgements,  Pre
 Neotree: <https://christiantietze.de/posts/2022/03/hl-line-priority/>.
 
 
-File: docuyfzxc.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
+File: lin.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
 
 4 Acknowledgements
 ******************
@@ -232,7 +230,7 @@ Contributions to code or documentation
      Ponsinet, Kai von Fintel, Nicolas De Jaeghere, Simon Pugnet.
 
 
-File: docuyfzxc.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
+File: lin.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
 
 Appendix A GNU Free Documentation License
 *****************************************
@@ -714,7 +712,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: docuyfzxc.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
+File: lin.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
 
 B Indices
 *********
@@ -726,7 +724,7 @@ B Indices
 * Concept index::
 
 
-File: docuyfzxc.info,  Node: Function index,  Next: Variable index,  Up: Indices
+File: lin.info,  Node: Function index,  Next: Variable index,  Up: Indices
 
 B.1 Function index
 ==================
@@ -737,7 +735,7 @@ B.1 Function index
 * lin-mode:                              Overview.             (line 21)
 
 
-File: docuyfzxc.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
+File: lin.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
 
 B.2 Variable index
 ==================
@@ -765,7 +763,7 @@ B.2 Variable index
 * lin-yellow-override-fg:                Overview.             (line 26)
 
 
-File: docuyfzxc.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
+File: lin.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
 
 B.3 Concept index
 =================
@@ -778,25 +776,25 @@ B.3 Concept index
 * Overview:                              Overview.              (line 6)
 * Set up Lin:                            Sample configuration.  (line 6)
 
-
 
 Tag Table:
-Node: Top862
-Node: Overview2604
-Node: Installation4732
-Node: GNU ELPA package4919
-Node: Manual installation5477
-Node: Sample configuration6234
-Node: Acknowledgements7393
-Node: GNU Free Documentation License7843
-Node: Indices33003
-Node: Function index33179
-Node: Variable index33397
-Node: Concept index34878
+Node: Top854
+Node: Overview2589
+Node: Installation4711
+Node: GNU ELPA package4892
+Node: Manual installation5444
+Node: Sample configuration6195
+Node: Acknowledgements7348
+Node: GNU Free Documentation License7792
+Node: Indices32946
+Node: Function index33116
+Node: Variable index33328
+Node: Concept index34803
 
 End Tag Table
 
 
 Local Variables:
 coding: utf-8
+Info-documentlanguage: en
 End:

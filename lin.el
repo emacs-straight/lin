@@ -92,7 +92,8 @@
     proced-mode-hook
     tabulated-list-mode-hook
     tar-mode-hook
-    world-clock-mode-hook)
+    world-clock-mode-hook
+    xref--xref-buffer-mode-hook)
   "List of hooks that should be used by the `lin-global-mode'.
 Lin activates `hl-line-mode' and remaps its face to `lin-face'.
 This makes it possible to tweak the `lin-face' in order to
@@ -104,7 +105,7 @@ editing, and (ii) current selection."
   :set (lambda (symbol value)
          (if (eq value (default-value symbol))
              (set-default symbol value)
-           (lin--setup 'reverse)
+           (lin--setup :remove)
            (set-default symbol value)
            (lin--setup)))
   :package-version '(lin . "1.0.0")
@@ -314,14 +315,12 @@ Line numbers come from the `display-line-numbers-mode'."
   "Cookie of `face-remap-add-relative' for `line-number-current-line' face.")
 
 (defun lin--hl-line-source-face ()
-  "Determine the source face: what to remap."
+  "Return the face to be remapped."
   (cond
    ((derived-mode-p 'mu4e-headers-mode)
     'mu4e-header-highlight-face)
    ((derived-mode-p 'magit-mode)
     'magit-section-highlight)
-   ;; Do not target `hl-line' directly, as it can be changed by
-   ;; `hl-line-face'.
    ((bound-and-true-p hl-line-face)
     hl-line-face)
    (t
@@ -351,7 +350,7 @@ Line numbers come from the `display-line-numbers-mode'."
       (progn
         (lin--setup)
         (lin-enable-mode-in-buffers))
-    (lin--setup :reverse)
+    (lin--setup :remove)
     (lin-disable-mode-in-buffers)))
 
 (defun lin--setup-add-hooks ()
@@ -359,41 +358,35 @@ Line numbers come from the `display-line-numbers-mode'."
   (dolist (hook lin-mode-hooks)
     (add-hook hook #'lin-mode)))
 
-(defun lin--setup-remove-hooks (&optional hooks)
-  "Remove `lin-mode-hooks' or, optionally, HOOKS."
-  (dolist (hook (or hooks lin-mode-hooks))
+(defun lin--setup-remove-hooks ()
+  "Remove `lin-mode-hooks'."
+  (dolist (hook lin-mode-hooks)
     (remove-hook hook #'lin-mode)))
 
-(defvar lin--setup-hooks nil
-  "Last value used by `lin--setup'.")
-
-(defun lin--setup (&optional reverse)
+(defun lin--setup (&optional remove)
   "Set up Lin for select mode hooks.
 
 This adds `lin-mode' and `hl-line-mode' to every hook in
 `lin-mode-hooks'.
 
-With optional non-nil REVERSE argument, remove those hooks."
-  (cond
-   (reverse
-    (lin--setup-remove-hooks))
-   (t
-    (lin--setup-remove-hooks lin--setup-hooks)
+With optional non-nil REMOVE argument, remove those hooks."
+  (lin--setup-remove-hooks)
+  (unless remove
     (lin--setup-add-hooks)))
-  (setq lin--setup-hooks lin-mode-hooks))
 
 (defun lin--mode-enable (buffer)
-  "Enable `lin-mode' in BUFFER if appropriate."
+  "Enable `lin-mode' in BUFFER if appropriate.
+Do it if `lin-mode' is already enabled or the hook of the `major-mode'
+is a member of `lin-mode-hooks'."
   (with-current-buffer buffer
     (when (or lin-mode
               (memq (intern (format "%s-hook" major-mode)) lin-mode-hooks))
       (lin-mode 1))))
 
 (defun lin--mode-disable (buffer)
-  "Disable `lin-mode' if already enabled in BUFFER."
+  "Disable `lin-mode' in BUFFER."
   (with-current-buffer buffer
-    (when lin-mode
-      (lin-mode -1))))
+    (lin-mode -1)))
 
 (defun lin--buffer-hidden-p (buffer)
   "Return non-nil if BUFFER is hidden."
@@ -404,13 +397,11 @@ With optional non-nil REVERSE argument, remove those hooks."
   (seq-remove #'lin--buffer-hidden-p (buffer-list)))
 
 (defun lin-enable-mode-in-buffers ()
-  "Enable (restart) `lin-mode' if already enabled in any buffer.
-Do so by checking the `lin--non-hidden-buffers'."
+  "Enable `lin-mode' in `lin--non-hidden-buffers'."
   (mapc #'lin--mode-enable (lin--non-hidden-buffers)))
 
 (defun lin-disable-mode-in-buffers ()
-  "Restart `lin-mode' if already enabled in any buffer.
-Do so by checking the `lin--non-hidden-buffers'."
+  "Disable `lin-mode' in `lin--non-hidden-buffers'."
   (mapc #'lin--mode-disable (lin--non-hidden-buffers)))
 
 (provide 'lin)
