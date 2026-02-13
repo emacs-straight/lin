@@ -1,11 +1,11 @@
-;;; lin.el --- Make `hl-line-mode' more suitable for selection UIs -*- lexical-binding: t -*-
+;;; lin.el --- Make `hl-line-mode' more suitable for selection interfaces -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2021-2026  Free Software Foundation, Inc.
 
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; Maintainer: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://github.com/protesilaos/lin
-;; Version: 1.1.0
+;; Version: 2.0.0
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: convenience, faces, theme
 
@@ -154,6 +154,16 @@ Line numbers come from the `display-line-numbers-mode'."
   :package-version '(lin . "1.1.0")
   :group 'lin)
 
+(defcustom lin-gnome-accent-color-override-foreground nil
+  "When non-nil override the text color in `lin-gnome-accent-color-mode'.
+This means that the Lin face that is used to match the GNOME accent
+color will use a :foreground attribute of its own.
+
+When nil (the default), allow the underlying text to retain its color."
+  :type 'boolean
+  :package-version '(lin . "2.0.0")
+  :group 'lin)
+
 ;;;; Faces
 
 (defgroup lin-faces ()
@@ -249,10 +259,10 @@ Line numbers come from the `display-line-numbers-mode'."
     (((class color) (min-colors 88) (background light))
      :background "#ffddff")
     (((class color) (min-colors 88) (background dark))
-     :background "#552f5f")
+     :background "#5b2f50")
     (t :background "magenta"))
   "Alternative magenta face for `lin-face'."
-  :package-version '(lin . "1.1.0")
+  :package-version '(lin . "2.0.0")
   :group 'lin-faces)
 
 (defface lin-magenta-override-fg
@@ -263,6 +273,27 @@ Line numbers come from the `display-line-numbers-mode'."
      :foreground "white"))
   "Like `lin-magenta' but also sets a foreground."
   :package-version '(lin . "0.2.0")
+  :group 'lin-faces)
+
+(defface lin-purple
+  '((default :foreground unspecified :underline nil :extend t)
+    (((class color) (min-colors 88) (background light))
+     :background "#e0ddff")
+    (((class color) (min-colors 88) (background dark))
+     :background "#452f6f")
+    (t :background "magenta"))
+  "Alternative magenta face for `lin-face'."
+  :package-version '(lin . "2.0.0")
+  :group 'lin-faces)
+
+(defface lin-purple-override-fg
+  '((default :inherit lin-purple)
+    (((background light))
+     :foreground "black")
+    (((background dark))
+     :foreground "white"))
+  "Like `lin-purple' but also sets a foreground."
+  :package-version '(lin . "2.0.0")
   :group 'lin-faces)
 
 (defface lin-cyan
@@ -284,6 +315,48 @@ Line numbers come from the `display-line-numbers-mode'."
      :foreground "white"))
   "Like `lin-cyan' but also sets a foreground."
   :package-version '(lin . "0.2.0")
+  :group 'lin-faces)
+
+(defface lin-orange
+  '((default :foreground unspecified :underline nil :extend t)
+    (((class color) (min-colors 88) (background light))
+     :background "#ffd596")
+    (((class color) (min-colors 88) (background dark))
+     :background "#5a3000")
+    (t :background "yellow"))
+  "Alternative orange face for `lin-face'."
+  :package-version '(lin . "2.0.0")
+  :group 'lin-faces)
+
+(defface lin-orange-override-fg
+  '((default :inherit lin-orange)
+    (((background light))
+     :foreground "black")
+    (((background dark))
+     :foreground "white"))
+  "Like `lin-orange' but also sets a foreground."
+  :package-version '(lin . "2.0.0")
+  :group 'lin-faces)
+
+(defface lin-slate
+  '((default :foreground unspecified :underline nil :extend t)
+    (((class color) (min-colors 88) (background light))
+     :background "#cfdfe0")
+    (((class color) (min-colors 88) (background dark))
+     :background "#2f3f45")
+    (t :background "cyan"))
+  "Alternative slate face for `lin-face'."
+  :package-version '(lin . "2.0.0")
+  :group 'lin-faces)
+
+(defface lin-slate-override-fg
+  '((default :inherit lin-slate)
+    (((background light))
+     :foreground "black")
+    (((background dark))
+     :foreground "white"))
+  "Like `lin-slate' but also sets a foreground."
+  :package-version '(lin . "2.0.0")
   :group 'lin-faces)
 
 ;; TODO 2022-03-18: Can we find all system styles?  Then we can rename
@@ -404,6 +477,96 @@ is a member of `lin-mode-hooks'."
   "Disable `lin-mode' in `lin--non-hidden-buffers'."
   (mapc #'lin--mode-disable (lin--non-hidden-buffers)))
 
-(provide 'lin)
+;;;; Dbus integration with GNOME
 
+(defun lin-gnome--get-gsettings-accent-color ()
+  "Return accent color value using the gsettings program."
+  (unless (executable-find "gsettings")
+    (error "The `gsettings' program is not available"))
+  (shell-command-to-string "gsettings get org.gnome.desktop.interface accent-color"))
+
+(defconst lin-gnome-accent-colors
+  ;; NOTE 2026-02-12: This is in the order they appear in the Gnome settings under "Appearance".
+  '("blue" "teal" "green" "yellow" "orange" "red" "pink" "purple" "slate")
+  "Names of accent colors used by the GNOME desktop environment.")
+
+(defun lin-gnome--get-accent-color-string (accent)
+  "Return the string that corresponds to GNOME's ACCENT color."
+  (seq-find
+   (lambda (color)
+     (string-match-p color accent))
+   lin-gnome-accent-colors))
+
+(defun lin--get-face-for-accent-color (accent)
+  "Return face matching ACCENT color among `lin-gnome-accent-colors'."
+  (let ((color (lin-gnome--get-accent-color-string accent)))
+    (if lin-gnome-accent-color-override-foreground
+        (pcase color
+          ("blue" 'lin-blue-override-fg)
+          ("teal" 'lin-cyan-override-fg)
+          ("green" 'lin-green-override-fg)
+          ("yellow" 'lin-yellow-override-fg)
+          ("orange" 'lin-orange-override-fg)
+          ("red" 'lin-red-override-fg)
+          ("pink" 'lin-magenta-override-fg)
+          ("purple" 'lin-purple-override-fg)
+          ("slate" 'lin-slate-override-fg))
+      (pcase color
+        ("blue" 'lin-blue)
+        ("teal" 'lin-cyan)
+        ("green" 'lin-green)
+        ("yellow" 'lin-yellow)
+        ("orange" 'lin-orange)
+        ("red" 'lin-red)
+        ("pink" 'lin-magenta)
+        ("purple" 'lin-purple)
+        ("slate" 'lin-slate)))))
+
+(defvar lin--dbus-object nil
+  "DBus object for GNOME accent color changes.")
+
+(defun lin-gnome-accent-color-changed-handler (namespace key value)
+  "Handle D-Bus signal for accent color change.
+NAMESPACE is the gsettings path as a string.  KEY is the specific domain
+as a string.  VALUE is what corresponds to KEY, as a list of strings."
+  (when (and (string= namespace "org.gnome.desktop.interface")
+             (string= key "accent-color"))
+    (let* ((accent-color (car value))
+           (face (lin--get-face-for-accent-color accent-color)))
+      (when face
+        (setq lin-face face)
+        (lin-enable-mode-in-buffers)
+        (message "Update Lin to use GNOME's `%s' color"
+                 (propertize accent-color 'face face))))))
+
+(declare-function dbus-unregister-object "dbus" (object))
+
+;;;###autoload
+(define-minor-mode lin-gnome-accent-color-mode
+  "Toggle syncing of `lin-face' with the GNOME accent color picker."
+  :global t
+  :init-value nil
+  (require 'dbus)
+  (if lin-gnome-accent-color-mode
+      (progn
+        (when (and (executable-find "gsettings")
+                   (fboundp 'dbus-register-signal)
+                   (null lin--dbus-object))
+          (setq lin--dbus-object
+                (dbus-register-signal
+                 :session
+                 "org.freedesktop.portal.Desktop"
+                 "/org/freedesktop/portal/desktop"
+                 "org.freedesktop.portal.Settings"
+                 "SettingChanged"
+                 #'lin-gnome-accent-color-changed-handler))
+          (when-let* ((current-accent (lin-gnome--get-gsettings-accent-color))
+                      (face (lin--get-face-for-accent-color current-accent)))
+            (setq lin-face face)
+            (lin-enable-mode-in-buffers))))
+    (when lin--dbus-object
+      (dbus-unregister-object lin--dbus-object)
+      (setq lin--dbus-object nil))))
+
+(provide 'lin)
 ;;; lin.el ends here

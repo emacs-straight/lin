@@ -4,9 +4,9 @@
 #+language: en
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
-#+macro: stable-version 1.0.0
-#+macro: release-date 2024-08-05
-#+macro: development-version 1.2.0-dev
+#+macro: stable-version 2.0.0
+#+macro: release-date 2026-02-12
+#+macro: development-version 2.1.0-dev
 #+export_file_name: lin.texi
 #+texinfo_filename: lin.info
 #+texinfo_dir_category: Emacs misc features
@@ -58,66 +58,6 @@ included in the section entitled “GNU Free Documentation License.”
 (a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 #+end_quote
-
-* Overview
-:PROPERTIES:
-:CUSTOM_ID: h:aa71c6b7-4801-4aba-9bcb-f3309f9e4d87
-:END:
-#+cindex: Overview
-
-Lin is a stylistic enhancement for Emacs' built-in ~hl-line-mode~.  It
-remaps the ~hl-line~ face (or equivalent) buffer-locally to a style that
-is optimal for major modes where line selection is the primary mode of
-interaction.
-
-The idea is that ~hl-line-mode~ cannot work equally well for contexts
-with competing priorities: (i) line selection, or (ii) simple line
-highlight.  In the former case, the current line needs to be made
-prominent because it carries a specific meaning of some significance in
-the given context: the user has to select a line.  Whereas in the latter
-case, the primary mode of interaction does not revolve around the line
-highlight itself: it may be because the focus is on editing text or
-reading through the buffer's contents, so the current line highlight is
-more of a reminder of the point's location on the vertical axis.
-
-#+findex: lin-mode
-#+vindex: lin-mode-hooks
-#+vindex: lin-face
-~lin-mode~ enables ~hl-line-mode~ in the current buffer and remaps the
-appropriate face to the ~lin-face~.  The ~lin-global-mode~ follows the
-same principle, though it applies to all hooks specified in the user
-option ~lin-mode-hooks~.
-
-#+vindex: lin-blue
-#+vindex: lin-red
-#+vindex: lin-green
-#+vindex: lin-yellow
-#+vindex: lin-blue
-#+vindex: lin-magenta
-#+vindex: lin-cyan
-#+vindex: lin-mac
-#+vindex: lin-red-override-fg
-#+vindex: lin-green-override-fg
-#+vindex: lin-yellow-override-fg
-#+vindex: lin-blue-override-fg
-#+vindex: lin-magenta-override-fg
-#+vindex: lin-cyan-override-fg
-#+vindex: lin-mac-override-fg
-Users can select their preferred style by customizing the user option
-~lin-face~.  Options include the faces ~lin-red~, ~lin-green~,
-~lin-yellow~, ~lin-blue~ (default), ~lin-magenta~, ~lin-cyan~,
-~lin-mac~, ~lin-red-override-fg~, ~lin-green-override-fg~,
-~lin-yellow-override-fg~, ~lin-blue-override-fg~,
-~lin-magenta-override-fg~, ~lin-cyan-override-fg~,
-~lin-mac-override-fg~, or any other face that preferably has a
-background attribute.  The Lin faces with the =-override-fg= suffix set
-a foreground value which replaces that of the underlying text.  Whereas
-the others only specify a background attribute.
-
-#+vindex: lin-remap-current-line-number
-The user option ~lin-remap-current-line-number~ controls whether to
-apply the Lin style also to the currently highlighted line number.
-Line numbers come from the built-in ~display-line-numbers-mode~.
 
 * Installation
 :PROPERTIES:
@@ -179,39 +119,114 @@ Everything is in place to set up the package.
 #+cindex: Set up Lin
 
 #+begin_src emacs-lisp
-(require 'lin)
+(use-package lin
+  :ensure t
+  :config
+  (setopt lin-face 'lin-blue) ; check doc string for alternative styles
+  
+  (lin-global-mode 1)
 
-(setq lin-face 'lin-blue) ; check doc string for alternative styles
-
-;; You can use this to live update the face:
-;;
-;; (customize-set-variable 'lin-face 'lin-green)
-
-(setq lin-mode-hooks
-      '(bongo-mode-hook
-        dired-mode-hook
-        elfeed-search-mode-hook
-        git-rebase-mode-hook
-        grep-mode-hook
-        ibuffer-mode-hook
-        ilist-mode-hook
-        ledger-report-mode-hook
-        log-view-mode-hook
-        magit-log-mode-hook
-        mu4e-headers-mode-hook
-        notmuch-search-mode-hook
-        notmuch-tree-mode-hook
-        occur-mode-hook
-        org-agenda-mode-hook
-        pdf-outline-buffer-mode-hook
-        proced-mode-hook
-        tabulated-list-mode-hook))
-
-(lin-global-mode 1)
+  ;; If you are using the GNOME desktop and want to synchronise the
+  ;; `lin-face' with GNOME's accent colour:
+  (lin-gnome-accent-color-mode 1))
 #+end_src
 
 Check out Christian Tietze's blog post on integrating Lin with Neotree:
 <https://christiantietze.de/posts/2022/03/hl-line-priority/>.
+
+* Overview
+:PROPERTIES:
+:CUSTOM_ID: h:aa71c6b7-4801-4aba-9bcb-f3309f9e4d87
+:END:
+#+cindex: Overview
+
+Lin is a stylistic enhancement for Emacs' built-in ~hl-line-mode~.  It
+remaps the ~hl-line~ face (or equivalent) buffer-locally to a style that
+is optimal for major modes where line selection is the primary mode of
+interaction.
+
+The idea is that ~hl-line-mode~ cannot work equally well for contexts
+with competing priorities: (i) line selection, or (ii) simple line
+highlight.  In the former case, the current line needs to be made
+prominent because it carries a specific meaning of some significance in
+the given context: the user has to select a line.  Whereas in the latter
+case, the primary mode of interaction does not revolve around the line
+highlight itself: it may be because the focus is on editing text or
+reading through the buffer's contents, so the current line highlight is
+more of a reminder of the point's location on the vertical axis.
+
+#+findex: lin-mode
+#+vindex: lin-mode-hooks
+#+vindex: lin-face
+~lin-mode~ enables ~hl-line-mode~ in the current buffer and remaps the
+appropriate face to the ~lin-face~ ([[#h:2e28af52-8302-4071-a53e-f282f54a862e][Integration with the GNOME accent color picker]]).
+The ~lin-global-mode~ follows the same principle, though it applies to
+all hooks specified in the user option ~lin-mode-hooks~.
+
+#+vindex: lin-blue
+#+vindex: lin-red
+#+vindex: lin-green
+#+vindex: lin-yellow
+#+vindex: lin-blue
+#+vindex: lin-magenta
+#+vindex: lin-cyan
+#+vindex: lin-purple
+#+vindex: lin-orange
+#+vindex: lin-slate
+#+vindex: lin-mac
+#+vindex: lin-red-override-fg
+#+vindex: lin-green-override-fg
+#+vindex: lin-yellow-override-fg
+#+vindex: lin-blue-override-fg
+#+vindex: lin-magenta-override-fg
+#+vindex: lin-cyan-override-fg
+#+vindex: lin-purple-override-fg
+#+vindex: lin-orange-override-fg
+#+vindex: lin-slate-override-fg
+#+vindex: lin-mac-override-fg
+Users can select their preferred style by customizing the user option
+~lin-face~. Options include the faces ~lin-red~, ~lin-green~,
+~lin-yellow~, ~lin-blue~ (default), ~lin-magenta~, ~lin-cyan~,
+~lin-purple~, ~lin-orange~, ~lin-slate~, ~lin-mac~,
+~lin-red-override-fg~, ~lin-green-override-fg~,
+~lin-yellow-override-fg~, ~lin-blue-override-fg~,
+~lin-magenta-override-fg~, ~lin-cyan-override-fg~,
+~lin-purple-override-fg~, ~lin-orange-override-fg~,
+~lin-slate-override-fg~ ~lin-mac-override-fg~, or any other face that
+preferably has a background attribute. The Lin faces with the
+=-override-fg= suffix set a foreground value which replaces that of
+the underlying text. Whereas the others only specify a background
+attribute.
+
+#+vindex: lin-remap-current-line-number
+The user option ~lin-remap-current-line-number~ controls whether to
+apply the Lin style also to the currently highlighted line number.
+Line numbers come from the built-in ~display-line-numbers-mode~.
+
+* Integration with the GNOME accent color picker
+:PROPERTIES:
+:CUSTOM_ID: h:2e28af52-8302-4071-a53e-f282f54a862e
+:END:
+#+cindex: Match the Lin face to the GNOME accent color
+
+#+findex: lin-gnome-accent-color-mode
+The GNOME desktop environment provides a setting to pick an accent
+color. This is then applied by applications to add a personal touch to
+the user's experience. Lin can now read this color and automatically
+update all the buffers it is enabled in via the minor mode ~lin-gnome-accent-color-mode~.
+
+When ~lin-gnome-accent-color-mode~ is enabled, Lin reads the accent
+color of GNOME and sets the corresponding Lin face. For example, if
+the user picks red in the GNOME settings, the ~lin-face~ will be set
+to ~lin-red~.
+
+#+vindex: lin-gnome-accent-color-override-foreground
+The user option ~lin-gnome-accent-color-override-foreground~ controls
+whether the faces that correspond to GNOME accent colors should
+override the underlying text color or not. This is useful for improved
+color contrast. The default is to not override the foreground. Setting
+~lin-gnome-accent-color-override-foreground~ to non-~nil~ changes that
+so, for example, the ~lin-face~ will be set to ~lin-red-override-fg~.
 
 * Acknowledgements
 :PROPERTIES:

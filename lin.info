@@ -19,7 +19,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: lin.info,  Node: Top,  Next: Overview,  Up: (dir)
+File: lin.info,  Node: Top,  Next: Installation,  Up: (dir)
 
 LIN Is Noticeable (lin.el)
 **************************
@@ -41,11 +41,11 @@ Copyright (C) 2021-2026 Free Software Foundation, Inc.
 of ‘lin.el’.
 
    The documentation furnished herein corresponds to stable version
-1.0.0, released on 2024-08-05.  Any reference to a newer feature which
+2.0.0, released on 2026-02-12.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 1.2.0-dev.
+   Current development target is 2.1.0-dev.
 
    • Package name (GNU ELPA): ‘lin’
    • Official manual: <https://protesilaos.com/emacs/lin>
@@ -57,9 +57,10 @@ as such.
 
 * Menu:
 
-* Overview::
 * Installation::
 * Sample configuration::
+* Overview::
+* Integration with the GNOME accent color picker::
 * Acknowledgements::
 * GNU Free Documentation License::
 * Indices::
@@ -78,50 +79,9 @@ Indices
 * Concept index::
 
 
-File: lin.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
+File: lin.info,  Node: Installation,  Next: Sample configuration,  Prev: Top,  Up: Top
 
-1 Overview
-**********
-
-Lin is a stylistic enhancement for Emacs' built-in ‘hl-line-mode’.  It
-remaps the ‘hl-line’ face (or equivalent) buffer-locally to a style that
-is optimal for major modes where line selection is the primary mode of
-interaction.
-
-   The idea is that ‘hl-line-mode’ cannot work equally well for contexts
-with competing priorities: (i) line selection, or (ii) simple line
-highlight.  In the former case, the current line needs to be made
-prominent because it carries a specific meaning of some significance in
-the given context: the user has to select a line.  Whereas in the latter
-case, the primary mode of interaction does not revolve around the line
-highlight itself: it may be because the focus is on editing text or
-reading through the buffer's contents, so the current line highlight is
-more of a reminder of the point's location on the vertical axis.
-
-   ‘lin-mode’ enables ‘hl-line-mode’ in the current buffer and remaps
-the appropriate face to the ‘lin-face’.  The ‘lin-global-mode’ follows
-the same principle, though it applies to all hooks specified in the user
-option ‘lin-mode-hooks’.
-
-   Users can select their preferred style by customizing the user option
-‘lin-face’.  Options include the faces ‘lin-red’, ‘lin-green’,
-‘lin-yellow’, ‘lin-blue’ (default), ‘lin-magenta’, ‘lin-cyan’,
-‘lin-mac’, ‘lin-red-override-fg’, ‘lin-green-override-fg’,
-‘lin-yellow-override-fg’, ‘lin-blue-override-fg’,
-‘lin-magenta-override-fg’, ‘lin-cyan-override-fg’,
-‘lin-mac-override-fg’, or any other face that preferably has a
-background attribute.  The Lin faces with the ‘-override-fg’ suffix set
-a foreground value which replaces that of the underlying text.  Whereas
-the others only specify a background attribute.
-
-   The user option ‘lin-remap-current-line-number’ controls whether to
-apply the Lin style also to the currently highlighted line number.  Line
-numbers come from the built-in ‘display-line-numbers-mode’.
-
-
-File: lin.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
-
-2 Installation
+1 Installation
 **************
 
 * Menu:
@@ -132,7 +92,7 @@ File: lin.info,  Node: Installation,  Next: Sample configuration,  Prev: Overvie
 
 File: lin.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
 
-2.1 GNU ELPA package
+1.1 GNU ELPA package
 ====================
 
 The package is available as ‘lin’.  Simply do:
@@ -151,7 +111,7 @@ archive.  Read:
 
 File: lin.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
 
-2.2 Manual installation
+1.2 Manual installation
 =======================
 
 Assuming your Emacs files are found in ‘~/.emacs.d/’, execute the
@@ -176,48 +136,98 @@ following commands in a shell prompt:
    Everything is in place to set up the package.
 
 
-File: lin.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
+File: lin.info,  Node: Sample configuration,  Next: Overview,  Prev: Installation,  Up: Top
 
-3 Sample configuration
+2 Sample configuration
 **********************
 
-     (require 'lin)
+     (use-package lin
+       :ensure t
+       :config
+       (setopt lin-face 'lin-blue) ; check doc string for alternative styles
 
-     (setq lin-face 'lin-blue) ; check doc string for alternative styles
+       (lin-global-mode 1)
 
-     ;; You can use this to live update the face:
-     ;;
-     ;; (customize-set-variable 'lin-face 'lin-green)
-
-     (setq lin-mode-hooks
-           '(bongo-mode-hook
-             dired-mode-hook
-             elfeed-search-mode-hook
-             git-rebase-mode-hook
-             grep-mode-hook
-             ibuffer-mode-hook
-             ilist-mode-hook
-             ledger-report-mode-hook
-             log-view-mode-hook
-             magit-log-mode-hook
-             mu4e-headers-mode-hook
-             notmuch-search-mode-hook
-             notmuch-tree-mode-hook
-             occur-mode-hook
-             org-agenda-mode-hook
-             pdf-outline-buffer-mode-hook
-             proced-mode-hook
-             tabulated-list-mode-hook))
-
-     (lin-global-mode 1)
+       ;; If you are using the GNOME desktop and want to synchronise the
+       ;; `lin-face' with GNOME's accent colour:
+       (lin-gnome-accent-color-mode 1))
 
    Check out Christian Tietze's blog post on integrating Lin with
 Neotree: <https://christiantietze.de/posts/2022/03/hl-line-priority/>.
 
 
-File: lin.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
+File: lin.info,  Node: Overview,  Next: Integration with the GNOME accent color picker,  Prev: Sample configuration,  Up: Top
 
-4 Acknowledgements
+3 Overview
+**********
+
+Lin is a stylistic enhancement for Emacs' built-in ‘hl-line-mode’.  It
+remaps the ‘hl-line’ face (or equivalent) buffer-locally to a style that
+is optimal for major modes where line selection is the primary mode of
+interaction.
+
+   The idea is that ‘hl-line-mode’ cannot work equally well for contexts
+with competing priorities: (i) line selection, or (ii) simple line
+highlight.  In the former case, the current line needs to be made
+prominent because it carries a specific meaning of some significance in
+the given context: the user has to select a line.  Whereas in the latter
+case, the primary mode of interaction does not revolve around the line
+highlight itself: it may be because the focus is on editing text or
+reading through the buffer's contents, so the current line highlight is
+more of a reminder of the point's location on the vertical axis.
+
+   ‘lin-mode’ enables ‘hl-line-mode’ in the current buffer and remaps
+the appropriate face to the ‘lin-face’ (*note Integration with the GNOME
+accent color picker::).  The ‘lin-global-mode’ follows the same
+principle, though it applies to all hooks specified in the user option
+‘lin-mode-hooks’.
+
+   Users can select their preferred style by customizing the user option
+‘lin-face’.  Options include the faces ‘lin-red’, ‘lin-green’,
+‘lin-yellow’, ‘lin-blue’ (default), ‘lin-magenta’, ‘lin-cyan’,
+‘lin-purple’, ‘lin-orange’, ‘lin-slate’, ‘lin-mac’,
+‘lin-red-override-fg’, ‘lin-green-override-fg’,
+‘lin-yellow-override-fg’, ‘lin-blue-override-fg’,
+‘lin-magenta-override-fg’, ‘lin-cyan-override-fg’,
+‘lin-purple-override-fg’, ‘lin-orange-override-fg’,
+‘lin-slate-override-fg’ ‘lin-mac-override-fg’, or any other face that
+preferably has a background attribute.  The Lin faces with the
+‘-override-fg’ suffix set a foreground value which replaces that of the
+underlying text.  Whereas the others only specify a background
+attribute.
+
+   The user option ‘lin-remap-current-line-number’ controls whether to
+apply the Lin style also to the currently highlighted line number.  Line
+numbers come from the built-in ‘display-line-numbers-mode’.
+
+
+File: lin.info,  Node: Integration with the GNOME accent color picker,  Next: Acknowledgements,  Prev: Overview,  Up: Top
+
+4 Integration with the GNOME accent color picker
+************************************************
+
+The GNOME desktop environment provides a setting to pick an accent
+color.  This is then applied by applications to add a personal touch to
+the user's experience.  Lin can now read this color and automatically
+update all the buffers it is enabled in via the minor mode
+‘lin-gnome-accent-color-mode’.
+
+   When ‘lin-gnome-accent-color-mode’ is enabled, Lin reads the accent
+color of GNOME and sets the corresponding Lin face.  For example, if the
+user picks red in the GNOME settings, the ‘lin-face’ will be set to
+‘lin-red’.
+
+   The user option ‘lin-gnome-accent-color-override-foreground’ controls
+whether the faces that correspond to GNOME accent colors should override
+the underlying text color or not.  This is useful for improved color
+contrast.  The default is to not override the foreground.  Setting
+‘lin-gnome-accent-color-override-foreground’ to non-‘nil’ changes that
+so, for example, the ‘lin-face’ will be set to ‘lin-red-override-fg’.
+
+
+File: lin.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Integration with the GNOME accent color picker,  Up: Top
+
+5 Acknowledgements
 ******************
 
 Lin is meant to be a collective effort.  Every bit of help matters.
@@ -732,6 +742,8 @@ B.1 Function index
  [index ]
 * Menu:
 
+* lin-gnome-accent-color-mode:           Integration with the GNOME accent color picker.
+                                                               (line  6)
 * lin-mode:                              Overview.             (line 21)
 
 
@@ -743,24 +755,32 @@ B.2 Variable index
  [index ]
 * Menu:
 
-* lin-blue:                              Overview.             (line 26)
-* lin-blue <1>:                          Overview.             (line 26)
-* lin-blue-override-fg:                  Overview.             (line 26)
-* lin-cyan:                              Overview.             (line 26)
-* lin-cyan-override-fg:                  Overview.             (line 26)
+* lin-blue:                              Overview.             (line 27)
+* lin-blue <1>:                          Overview.             (line 27)
+* lin-blue-override-fg:                  Overview.             (line 27)
+* lin-cyan:                              Overview.             (line 27)
+* lin-cyan-override-fg:                  Overview.             (line 27)
 * lin-face:                              Overview.             (line 21)
-* lin-green:                             Overview.             (line 26)
-* lin-green-override-fg:                 Overview.             (line 26)
-* lin-mac:                               Overview.             (line 26)
-* lin-mac-override-fg:                   Overview.             (line 26)
-* lin-magenta:                           Overview.             (line 26)
-* lin-magenta-override-fg:               Overview.             (line 26)
+* lin-gnome-accent-color-override-foreground: Integration with the GNOME accent color picker.
+                                                               (line 17)
+* lin-green:                             Overview.             (line 27)
+* lin-green-override-fg:                 Overview.             (line 27)
+* lin-mac:                               Overview.             (line 27)
+* lin-mac-override-fg:                   Overview.             (line 27)
+* lin-magenta:                           Overview.             (line 27)
+* lin-magenta-override-fg:               Overview.             (line 27)
 * lin-mode-hooks:                        Overview.             (line 21)
-* lin-red:                               Overview.             (line 26)
-* lin-red-override-fg:                   Overview.             (line 26)
-* lin-remap-current-line-number:         Overview.             (line 37)
-* lin-yellow:                            Overview.             (line 26)
-* lin-yellow-override-fg:                Overview.             (line 26)
+* lin-orange:                            Overview.             (line 27)
+* lin-orange-override-fg:                Overview.             (line 27)
+* lin-purple:                            Overview.             (line 27)
+* lin-purple-override-fg:                Overview.             (line 27)
+* lin-red:                               Overview.             (line 27)
+* lin-red-override-fg:                   Overview.             (line 27)
+* lin-remap-current-line-number:         Overview.             (line 41)
+* lin-slate:                             Overview.             (line 27)
+* lin-slate-override-fg:                 Overview.             (line 27)
+* lin-yellow:                            Overview.             (line 27)
+* lin-yellow-override-fg:                Overview.             (line 27)
 
 
 File: lin.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
@@ -773,23 +793,26 @@ B.3 Concept index
 
 * Contributors:                          Acknowledgements.      (line 6)
 * Installation instructions:             Installation.          (line 6)
+* Match the Lin face to the GNOME accent color: Integration with the GNOME accent color picker.
+                                                                (line 6)
 * Overview:                              Overview.              (line 6)
 * Set up Lin:                            Sample configuration.  (line 6)
 
 
 Tag Table:
 Node: Top854
-Node: Overview2589
-Node: Installation4711
-Node: GNU ELPA package4892
-Node: Manual installation5444
-Node: Sample configuration6195
-Node: Acknowledgements7348
-Node: GNU Free Documentation License7792
-Node: Indices32946
-Node: Function index33116
-Node: Variable index33328
-Node: Concept index34803
+Node: Installation2644
+Node: GNU ELPA package2820
+Node: Manual installation3372
+Node: Sample configuration4123
+Node: Overview4726
+Node: Integration with the GNOME accent color picker7097
+Node: Acknowledgements8305
+Node: GNU Free Documentation License8775
+Node: Indices33929
+Node: Function index34099
+Node: Variable index34473
+Node: Concept index36553
 
 End Tag Table
 
