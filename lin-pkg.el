@@ -1,2 +1,2 @@
-;; Generated package description from lin.el  -*- no-byte-compile: t -*-
-(define-package "lin" "2.0.0.0.20260212.115414" "Make `hl-line-mode' more suitable for selection interfaces" '((emacs "27.1")) :commit "fa75ea6b05070ce0f06befdef1954afa99aa5e89" :authors '(("Protesilaos Stavrou" . "info@protesilaos.com")) :maintainer '("Protesilaos Stavrou" . "info@protesilaos.com") :keywords '("convenience" "faces" "theme") :url "https://github.com/protesilaos/lin")
+;; Generated package description from lin.el  -*- no-byte-compile: t; lexical-binding:t -*-
+(define-package "lin" "2.0.0.0.20260213.165002" "Make `hl-line-mode' more suitable for selection interfaces" '((emacs "27.1")) :commit "e0677517d95f8a728ce6a949ea97ed0311c12e70" :authors '(("Protesilaos Stavrou" . "info@protesilaos.com")) :maintainer '("Protesilaos Stavrou" . "info@protesilaos.com") :keywords '("convenience" "faces" "theme") :url "https://github.com/protesilaos/lin")
