@@ -156,6 +156,8 @@ Table of Contents
   though it applies to all hooks specified in the user option
   `lin-mode-hooks'.
 
+  Note that Lin respects the user option `hl-line-sticky-flag'.
+
   Users can select their preferred style by customizing the user option
   `lin-face'. Options include the faces `lin-red', `lin-green',
   `lin-yellow', `lin-blue' (default), `lin-magenta', `lin-cyan',
@@ -209,8 +211,9 @@ Table of Contents
         Protesilaos Stavrou.
 
   Contributions to code or documentation
-        Christian Tietze, Damien Cassou, Federico Stilman, Gautier
-        Ponsinet, Kai von Fintel, Nicolas De Jaeghere, Simon Pugnet.
+        Alan Schmitt, Christian Tietze, Damien Cassou, Federico Stilman,
+        Gautier Ponsinet, Kai von Fintel, Nicolas De Jaeghere, Simon
+        Pugnet.
 
 
 7 GNU Free Documentation License

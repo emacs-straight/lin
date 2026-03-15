@@ -182,6 +182,8 @@ accent color picker::).  The ‘lin-global-mode’ follows the same
 principle, though it applies to all hooks specified in the user option
 ‘lin-mode-hooks’.
 
+   Note that Lin respects the user option ‘hl-line-sticky-flag’.
+
    Users can select their preferred style by customizing the user option
 ‘lin-face’.  Options include the faces ‘lin-red’, ‘lin-green’,
 ‘lin-yellow’, ‘lin-blue’ (default), ‘lin-magenta’, ‘lin-cyan’,
@@ -236,8 +238,9 @@ Author/maintainer
      Protesilaos Stavrou.
 
 Contributions to code or documentation
-     Christian Tietze, Damien Cassou, Federico Stilman, Gautier
-     Ponsinet, Kai von Fintel, Nicolas De Jaeghere, Simon Pugnet.
+     Alan Schmitt, Christian Tietze, Damien Cassou, Federico Stilman,
+     Gautier Ponsinet, Kai von Fintel, Nicolas De Jaeghere, Simon
+     Pugnet.
 
 
 File: lin.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
@@ -755,32 +758,32 @@ B.2 Variable index
  [index ]
 * Menu:
 
-* lin-blue:                              Overview.             (line 27)
-* lin-blue <1>:                          Overview.             (line 27)
-* lin-blue-override-fg:                  Overview.             (line 27)
-* lin-cyan:                              Overview.             (line 27)
-* lin-cyan-override-fg:                  Overview.             (line 27)
+* lin-blue:                              Overview.             (line 29)
+* lin-blue <1>:                          Overview.             (line 29)
+* lin-blue-override-fg:                  Overview.             (line 29)
+* lin-cyan:                              Overview.             (line 29)
+* lin-cyan-override-fg:                  Overview.             (line 29)
 * lin-face:                              Overview.             (line 21)
 * lin-gnome-accent-color-override-foreground: Integration with the GNOME accent color picker.
                                                                (line 17)
-* lin-green:                             Overview.             (line 27)
-* lin-green-override-fg:                 Overview.             (line 27)
-* lin-mac:                               Overview.             (line 27)
-* lin-mac-override-fg:                   Overview.             (line 27)
-* lin-magenta:                           Overview.             (line 27)
-* lin-magenta-override-fg:               Overview.             (line 27)
+* lin-green:                             Overview.             (line 29)
+* lin-green-override-fg:                 Overview.             (line 29)
+* lin-mac:                               Overview.             (line 29)
+* lin-mac-override-fg:                   Overview.             (line 29)
+* lin-magenta:                           Overview.             (line 29)
+* lin-magenta-override-fg:               Overview.             (line 29)
 * lin-mode-hooks:                        Overview.             (line 21)
-* lin-orange:                            Overview.             (line 27)
-* lin-orange-override-fg:                Overview.             (line 27)
-* lin-purple:                            Overview.             (line 27)
-* lin-purple-override-fg:                Overview.             (line 27)
-* lin-red:                               Overview.             (line 27)
-* lin-red-override-fg:                   Overview.             (line 27)
-* lin-remap-current-line-number:         Overview.             (line 41)
-* lin-slate:                             Overview.             (line 27)
-* lin-slate-override-fg:                 Overview.             (line 27)
-* lin-yellow:                            Overview.             (line 27)
-* lin-yellow-override-fg:                Overview.             (line 27)
+* lin-orange:                            Overview.             (line 29)
+* lin-orange-override-fg:                Overview.             (line 29)
+* lin-purple:                            Overview.             (line 29)
+* lin-purple-override-fg:                Overview.             (line 29)
+* lin-red:                               Overview.             (line 29)
+* lin-red-override-fg:                   Overview.             (line 29)
+* lin-remap-current-line-number:         Overview.             (line 43)
+* lin-slate:                             Overview.             (line 29)
+* lin-slate-override-fg:                 Overview.             (line 29)
+* lin-yellow:                            Overview.             (line 29)
+* lin-yellow-override-fg:                Overview.             (line 29)
 
 
 File: lin.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
@@ -806,13 +809,13 @@ Node: GNU ELPA package2820
 Node: Manual installation3372
 Node: Sample configuration4123
 Node: Overview4726
-Node: Integration with the GNOME accent color picker7097
-Node: Acknowledgements8305
-Node: GNU Free Documentation License8775
-Node: Indices33929
-Node: Function index34099
-Node: Variable index34473
-Node: Concept index36553
+Node: Integration with the GNOME accent color picker7167
+Node: Acknowledgements8375
+Node: GNU Free Documentation License8864
+Node: Indices34018
+Node: Function index34188
+Node: Variable index34562
+Node: Concept index36642
 
 End Tag Table
 
