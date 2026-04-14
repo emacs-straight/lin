@@ -144,7 +144,7 @@ File: lin.info,  Node: Sample configuration,  Next: Overview,  Prev: Installatio
      (use-package lin
        :ensure t
        :config
-       (setopt lin-face 'lin-blue) ; check doc string for alternative styles
+       (setopt lin-face 'lin-blue) ; check docstring for alternative styles
 
        (lin-global-mode 1)
 
@@ -808,14 +808,14 @@ Node: Installation2644
 Node: GNU ELPA package2820
 Node: Manual installation3372
 Node: Sample configuration4123
-Node: Overview4726
-Node: Integration with the GNOME accent color picker7167
-Node: Acknowledgements8375
-Node: GNU Free Documentation License8864
-Node: Indices34018
-Node: Function index34188
-Node: Variable index34562
-Node: Concept index36642
+Node: Overview4725
+Node: Integration with the GNOME accent color picker7166
+Node: Acknowledgements8374
+Node: GNU Free Documentation License8863
+Node: Indices34017
+Node: Function index34187
+Node: Variable index34561
+Node: Concept index36641
 
 End Tag Table
 

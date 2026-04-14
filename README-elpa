@@ -118,7 +118,7 @@ Table of Contents
   │ (use-package lin
   │   :ensure t
   │   :config
-  │   (setopt lin-face 'lin-blue) ; check doc string for alternative styles
+  │   (setopt lin-face 'lin-blue) ; check docstring for alternative styles
   │ 
   │   (lin-global-mode 1)
   │ 
