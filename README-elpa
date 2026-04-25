@@ -1,12 +1,12 @@
                       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                        LIN IS NOTICEABLE (LIN.EL)
 
-                          Protesilaos Stavrou
+                              Protesilaos
                           info@protesilaos.com
                       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-This manual, written by Protesilaos Stavrou, describes the specifics of
+This manual, written by Protesilaos, describes the specifics of
 `lin.el'.
 
 The documentation furnished herein corresponds to stable version 2.0.0,
@@ -208,7 +208,7 @@ Table of Contents
   Lin is meant to be a collective effort.  Every bit of help matters.
 
   Author/maintainer
-        Protesilaos Stavrou.
+        Protesilaos.
 
   Contributions to code or documentation
         Alan Schmitt, Christian Tietze, Damien Cassou, Federico Stilman,

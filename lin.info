@@ -37,8 +37,8 @@ Copyright (C) 2021-2026 Free Software Foundation, Inc.
      (a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
      modify this GNU manual.”
 
-   This manual, written by Protesilaos Stavrou, describes the specifics
-of ‘lin.el’.
+   This manual, written by Protesilaos, describes the specifics of
+‘lin.el’.
 
    The documentation furnished herein corresponds to stable version
 2.0.0, released on 2026-02-12.  Any reference to a newer feature which
@@ -235,7 +235,7 @@ File: lin.info,  Node: Acknowledgements,  Next: GNU Free Documentation License, 
 Lin is meant to be a collective effort.  Every bit of help matters.
 
 Author/maintainer
-     Protesilaos Stavrou.
+     Protesilaos.
 
 Contributions to code or documentation
      Alan Schmitt, Christian Tietze, Damien Cassou, Federico Stilman,
@@ -804,18 +804,18 @@ B.3 Concept index
 
 Tag Table:
 Node: Top854
-Node: Installation2644
-Node: GNU ELPA package2820
-Node: Manual installation3372
-Node: Sample configuration4123
-Node: Overview4725
-Node: Integration with the GNOME accent color picker7166
-Node: Acknowledgements8374
-Node: GNU Free Documentation License8863
-Node: Indices34017
-Node: Function index34187
-Node: Variable index34561
-Node: Concept index36641
+Node: Installation2636
+Node: GNU ELPA package2812
+Node: Manual installation3364
+Node: Sample configuration4115
+Node: Overview4717
+Node: Integration with the GNOME accent color picker7158
+Node: Acknowledgements8366
+Node: GNU Free Documentation License8847
+Node: Indices34001
+Node: Function index34171
+Node: Variable index34545
+Node: Concept index36625
 
 End Tag Table
 
